@@ -1,0 +1,12 @@
+At the end of this course, you should be able to...
+
+- List the basic pillars of OOP (Object-Oriented Programming)
+- Explain the purpose and use of Encapsulation, Inheritance and Polymorphism
+- Explain the difference between Static and Non-Static Methods
+- Create classes that demonstrate Encapsulation, Inheritance and Polymorphism
+- Define the term "Collection" in C# and list various kinds of Collections
+- Explain how run-time errors are generated and processed (Exceptions + Exception Handling)
+- Define the terms Abstract Class, Interface, and Extension Methods
+- Create abstract classes, interfaces, and extension methods
+
+------------------------
