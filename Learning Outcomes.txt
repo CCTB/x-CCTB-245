@@ -10,3 +10,10 @@ At the end of this course, you should be able to...
 - Create abstract classes, interfaces, and extension methods
 
 ------------------------
+Level 3
+- Using the Entity Framework to store/retreive data in a database
+- Basic Intro to LINQ (Language INtegrated Query)
+
+Level 4
+- LINQ
+- Other topics....
