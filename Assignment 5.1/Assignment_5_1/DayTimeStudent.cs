@@ -10,11 +10,9 @@ namespace Assignment_5_1
         public string Section { get; set; }
         public string Locker { get; set; }
 
-        public DayTimeStudent(int id, string name, string phone, string section, string locker)
+        public DayTimeStudent(string name, string phone, string section, string locker) : base(name, phone)
         {
-            Id = id;
-            Name = name;
-            PhoneNumber = phone;
+            Console.WriteLine("<- DayTimeStudent - Greedy Constructor ->");
             Section = section;
             Locker = locker;
         }

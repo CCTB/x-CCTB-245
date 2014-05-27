@@ -10,11 +10,10 @@ namespace Assignment_5_1
         public string CourseName { get; set; }
         public string RoomNumber { get; set; }
 
-        public EveningStudent(int id, string p2, string p3, string roomNumber, string courseName)
+        public EveningStudent(string studentName, string phone, string roomNumber, string courseName) : base(studentName, phone)
         {
-            Id = id;
-            Name = p2;
-            PhoneNumber = p3;
+            Console.WriteLine("<- EveningStudent - Greedy Constructor ->");
+            
             RoomNumber = roomNumber;
             CourseName = courseName;
         }

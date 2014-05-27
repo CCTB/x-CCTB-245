@@ -10,11 +10,21 @@ namespace Assignment_5_1
     {
         static void Main(string[] args)
         {
-            DayTimeStudent personA = new DayTimeStudent(1, "Bob Smith", "780.421.1234", "S18", "HP2298");
-            personA.DisplayStudent();
+            DayTimeStudent personA = 
+                new DayTimeStudent("Bob Smith", "780.421.1234", "S18", "HP2298");
 
-            EveningStudent personB = new EveningStudent(2, "Jane Doe", "780.773.7763", "WB102", "C#");
+            Student temp = new Student();
+            temp = new Student();
+            temp = new Student();
+
+            EveningStudent personB = 
+                new EveningStudent("Jane Doe", "780.773.7763", "WB102", "C#");
+
+            // Display info
+            personA.DisplayStudent();
             personB.DisplayStudent();
+            personA.DisplayStudent();
+            temp.DisplayStudent();
         }
     }
 }

@@ -7,24 +7,30 @@ namespace Assignment_5_1
 {
     class Student
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string PhoneNumber { get; set; }
+        // static field for the last generated student ID
+        private static int _LastUsedID = 20140001; // setting an initial value for field
+
+        public int Id { get; private set; }
+        public string Name { get; protected set; }
+        public string PhoneNumber { get; protected set; }
 
         public Student()
         {
+            Console.WriteLine("<- Student - Parameterless Constructor ->");
+            _LastUsedID++;
+            Id = _LastUsedID;
         }
 
-        public Student(int id, string name, string phone)
+        public Student(string name, string phone) : this()
         {
-            Id = id;
+            Console.WriteLine("<- Student - Greedy Constructor ->");
             Name = name;
             PhoneNumber = phone;
         }
 
         public virtual void DisplayStudent()
         {
-            Console.WriteLine(Name + " (ph " + PhoneNumber + ")");
+            Console.WriteLine("ID: " + Id + "  Name: " + Name + "  Phone: " + PhoneNumber + ")");
         }
     }
 }
