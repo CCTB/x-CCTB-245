@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Computer.cs" />
-    <Compile Include="Cylindar.cs" />
+    <Compile Include="Cylinder.cs" />
     <Compile Include="LaptopComputer.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
