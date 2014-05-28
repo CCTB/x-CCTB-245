@@ -19,12 +19,26 @@ namespace CardGame
             Program myApp = new Program();
             myApp.RunCardDemo();
         }
-
+        public void DisplayPlayerCards(Player person)
+        {
+            Console.WriteLine("Looking at a players cards....");
+            for (int index = 0; index < person.Count; index++)
+                Console.WriteLine(person.Peek(index));
+            Console.WriteLine();
+        }
         public void RunCardDemo()
         {
             DeckOfCards myDeck = new DeckOfCards();
             myDeck.Shuffle();
             DisplayCards(myDeck);
+            Player me = new Player(), you = new Player(), friend = new Player();
+            myDeck.Deal(5, me, you, friend);
+            DisplayPlayerCards(me);
+            DisplayPlayerCards(you);
+
+            //myDeck.Deal(7);
+            //myDeck.Deal(4, null);
+
             // uh-oh - not so secure.....
             myDeck.Cards.Add(new Card(Suit.SPADES, CardFace.Ace));
             myDeck.Cards.Add(new Card(Suit.SPADES, CardFace.Ace));

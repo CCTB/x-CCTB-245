@@ -33,6 +33,8 @@ namespace CardGame.GameElements
                 Card aCard = Cards[index];
                 Cards.RemoveAt(index); // Pull it out from the middle
                 Cards.Add(aCard); // Add it to the end
+
+                counter--; // sigh, did it again - infinite loop.....
             }
         }
 
@@ -58,6 +60,7 @@ namespace CardGame.GameElements
                     player.Add(card);
                     Cards.RemoveAt(0);
                 }
+                cards--; // oops, forgot to decrement how many times I deal cards
             }
         }
     }
