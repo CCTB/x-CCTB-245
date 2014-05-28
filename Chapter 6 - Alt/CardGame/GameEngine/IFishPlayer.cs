@@ -15,6 +15,8 @@ namespace CardGame.GameEngine
         void ShowCards(); // notice the semicolon, even though this has a parameter list
         bool Ask(IFishPlayer person); // the semicolon is here instead of the method body
         Card Reply(Card askedFor);
+        bool HasPairs();
+        void RemovePairs();
         // NOTE: It's probably better to put a Stack<Card> as the PlayerPile here...
         Stack<Card> PlayerPile { get; set; }
     }

@@ -48,10 +48,14 @@
     <Compile Include="AdHoc-Demo\StackDemo.cs" />
     <Compile Include="GameElements\AbstractFishPlayer.cs" />
     <Compile Include="GameElements\Card.cs" />
+    <Compile Include="GameElements\ComputerPlayer.cs" />
     <Compile Include="GameElements\DeckOfCards.cs" />
+    <Compile Include="GameElements\HumanPlayer.cs" />
     <Compile Include="GameElements\Player.cs" />
     <Compile Include="GameEngine\GoFish.cs" />
+    <Compile Include="GameEngine\AbstractCardGame.cs" />
     <Compile Include="GameEngine\IFishPlayer.cs" />
+    <Compile Include="GameEngine\Rnd.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

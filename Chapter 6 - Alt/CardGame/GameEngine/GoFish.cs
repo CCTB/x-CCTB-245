@@ -1,4 +1,4 @@
-﻿using CardGame.GameElements; // Need this...
+﻿using CardGame.GameElements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,57 +8,45 @@ using System.Threading.Tasks;
 namespace CardGame.GameEngine
 {
     // TODO: Push some parts to an abstract class called AbstractCardGame
-    class GoFish
+    class GoFish : AbstractCardGame
     {
-        private DeckOfCards Deck { get; set; }
-        private Player[] Players { get; set; }
-
         public GoFish(params AbstractFishPlayer[] players)
+            : base(new DeckOfCards(), players)
         {
             // TODO: Validate the list of players, that there are from 2 to 5 players
-            this.Players = players;
-            Deck = new DeckOfCards();
         }
 
-        public void Play()
+        protected override bool TakeTurn(Player gamePlayer)
         {
-            // Run the game - this is like the Main() method of your game
-            SetUp();
-            bool gameOver = false;
-            Player winner = null;
-            do
+            bool iWon = false;
+            IFishPlayer person = gamePlayer as IFishPlayer;
+            // Make a list of all the other players (besides the person taking their turn)
+            List<IFishPlayer> otherPlayers = new List<IFishPlayer>();
+            foreach (IFishPlayer player in Players)
+                if (player != person)
+                    otherPlayers.Add(player);
+            // Pick someone
+            int index = Rnd.Get.Next(otherPlayers.Count);
+            bool gotCard = person.Ask(otherPlayers[index]);
+
+            if (!gotCard)
             {
-                foreach (var person in Players)
-                {
-                    // as IFishPlayer is an example of "safe casting"
-                    bool foundMatch = TakeTurn(person as IFishPlayer);
-                    if (foundMatch)
-                        RemovePairs(person);
-                    if (person.Count == 0)
-                    {
-                        gameOver = true;
-                        winner = person;
-                        break; // jump out of this foreach loop
-                    }
-                }
-            } while (!gameOver);
-            // TODO: Find some way to say who won.....
+                Deck.Draw(person as Player);
+            }
+            person.RemovePairs();
+
+            iWon = (person as Player).Count == 0;
+
+            return iWon;
         }
 
-        private bool TakeTurn(IFishPlayer person)
-        {
-            // TODO: Need to finish this method...
-            throw new NotImplementedException();
-        }
-        private void RemovePairs(Player person)
-        {
-            // TODO: Need to finish this method...
-            throw new NotImplementedException();
-        }
-        private void SetUp()
+        protected override void SetUp()
         {
             Deck.Shuffle();
             Deck.Deal(5, Players);
+            // Give each player a chance to remove all their matching pairs
+            foreach (IFishPlayer person in Players)
+                person.RemovePairs();
         }
 
 

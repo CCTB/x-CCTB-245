@@ -56,12 +56,17 @@ namespace CardGame.GameElements
                 foreach (var player in players)
                 {
                     // pull from top of deck.....
-                    Card card = Cards[0];
-                    player.Add(card);
-                    Cards.RemoveAt(0);
+                    Draw(player);
                 }
                 cards--; // oops, forgot to decrement how many times I deal cards
             }
+        }
+
+        public void Draw(Player person)
+        {
+            Card card = Cards[0];
+            person.Add(card);
+            Cards.RemoveAt(0);
         }
     }
 }
