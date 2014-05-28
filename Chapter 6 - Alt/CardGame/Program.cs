@@ -41,6 +41,7 @@ namespace CardGame
             foreach (Card item in myDeck.Cards)
                 Console.WriteLine("{0} of {1}", item.Face, item.Suit);
         }
+
         static void RunDemos()
         {
             // Run some of the demos
