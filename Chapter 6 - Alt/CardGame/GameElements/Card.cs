@@ -31,5 +31,10 @@ namespace CardGame.GameElements
             }
         }
         // TODO: Create a constructor that takes two parameters: a Suit and a CardFace
+        public Card(Suit theSuit, CardFace theFace)
+        {
+            this.Suit = theSuit;
+            this.Face = theFace;
+        }
     }
 }
